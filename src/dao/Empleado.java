@@ -5,23 +5,26 @@
  */
 package dao;
 
-
 public class Empleado {
+
     private int idComision;
     private String fecha;
     private String nombreTrabajador;
     private String nombreCliente;
     private int tiempoTrabajado;
-    private int comisionObtenida;
-    private int descuentosRealizados;
-    private int sueldo;
-    
-    
-    
-     public Empleado(String fecha, String nombreTrabajador, String nombreCliente) {
+    private int comisionObtenida  = 0;
+    private int descuentosRealizados = 0;
+    private int sueldo = 500;
+
+    public Empleado() {
+
+    }
+
+    public Empleado(String fecha, String nombreTrabajador, String nombreCliente) {
         this.fecha = fecha;
         this.nombreTrabajador = nombreTrabajador;
         this.nombreCliente = nombreCliente;
+        this.sueldo = 500;
     }
 
     public Empleado(int idComision, String fecha, String nombreTrabajador, String nombreCliente, int tiempoTrabajado, int comisionObtenida, int descuentosRealizados, int sueldo) {
@@ -34,8 +37,6 @@ public class Empleado {
         this.descuentosRealizados = descuentosRealizados;
         this.sueldo = sueldo;
     }
-    
-    
 
     public int getIdComision() {
         return idComision;
@@ -82,6 +83,7 @@ public class Empleado {
     }
 
     public void setComisionObtenida(int comisionObtenida) {
+        this.sueldo += comisionObtenida;
         this.comisionObtenida = comisionObtenida;
     }
 
@@ -90,6 +92,7 @@ public class Empleado {
     }
 
     public void setDescuentosRealizados(int descuentosRealizados) {
+        this.sueldo -= descuentosRealizados;
         this.descuentosRealizados = descuentosRealizados;
     }
 
@@ -100,7 +103,5 @@ public class Empleado {
     public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
     }
-    
-    
-    
+
 }
